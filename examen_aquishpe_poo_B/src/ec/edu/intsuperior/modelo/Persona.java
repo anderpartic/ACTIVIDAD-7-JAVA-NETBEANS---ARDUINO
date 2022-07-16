@@ -4,7 +4,7 @@ package ec.edu.intsuperior.modelo;
  *
  * @author aquishpe
  */
-public class Persona {
+public class Persona extends Empresa {
 
     private String ci;
     private String nombre1;
@@ -17,7 +17,8 @@ public class Persona {
     }
 
     //Constructor
-    public Persona(String ci, String nombre1, String nombre2, String apellido1, String apellido2, int edad) {
+    public Persona(String ci, String nombre1, String nombre2, String apellido1, String apellido2, int edad, String nombreEmpresa) {
+        super(nombreEmpresa);
         this.ci = ci;
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
@@ -26,7 +27,7 @@ public class Persona {
         this.edad = edad;
     }
 
-    //Accesores Getters y Setters
+    //Getters and Setters
     public String getCi() {
         return ci;
     }
@@ -75,11 +76,13 @@ public class Persona {
         this.edad = edad;
     }
 
+    @Override
     public String mostrarDatos() {
         return "Los datos de la persona son: \n"
                 + "Cedula: " + getCi() + "\n"
                 + "Apellidos y Nombres: " + getApellido1() + " " + getApellido2() + " " + getNombre1() + " " + getNombre2() + "\n"
-                + "Edad: " + getEdad() + "\n";
-
+                + "Edad: " + getEdad() + "\n"
+                + "Nombre de la Empresa: " + getNombreEmpresa() + "\n";
     }
+
 }
