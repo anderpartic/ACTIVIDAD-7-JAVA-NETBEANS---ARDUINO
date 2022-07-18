@@ -12,7 +12,6 @@ public class Persona extends Empresa {
     private String apellido1;
     private String apellido2;
     private int edad;
-
     public Persona() {
     }
 

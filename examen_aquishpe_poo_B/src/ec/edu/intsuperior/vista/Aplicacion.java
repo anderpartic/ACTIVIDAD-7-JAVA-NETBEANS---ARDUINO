@@ -19,7 +19,7 @@ public class Aplicacion {
         c1.setApellido2(JOptionPane.showInputDialog("Ingrese su segundo apellido"));
         c1.setNombre1(JOptionPane.showInputDialog("Ingrese su primer nombre"));
         c1.setNombre2(JOptionPane.showInputDialog("Ingrese su segundo nombre"));
-        c1.setEdad(Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad")));
+        c1.setEdad(Integer.parseInt(JOptionPane.showInputDialog("Ingrese su año de nacimiento(dd/mm/aaaa)")));
         c1.setTelefonoContacto(Long.parseLong(JOptionPane.showInputDialog("Ingrese su numero de telefono sin el cero")));
 
         JOptionPane.showMessageDialog(null, c1.mostrarDatos());
