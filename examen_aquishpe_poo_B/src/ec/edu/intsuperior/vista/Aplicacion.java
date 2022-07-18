@@ -14,7 +14,7 @@ public class Aplicacion {
         Cliente c1 = new Cliente();
 
         c1.setCi(JOptionPane.showInputDialog("Digite su numero de cedula"));
-        c1.setNombreEmpresa(JOptionPane.showInputDialog("Empresa en la que trabaja"));
+        c1.setNombreEmpresa(JOptionPane.showInputDialog("Empresa asociada"));
         c1.setApellido1(JOptionPane.showInputDialog("Ingrese su primer apellido"));
         c1.setApellido2(JOptionPane.showInputDialog("Ingrese su segundo apellido"));
         c1.setNombre1(JOptionPane.showInputDialog("Ingrese su primer nombre"));
