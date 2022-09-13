@@ -8,11 +8,12 @@ import ec.edu.intsuperior.vista.JFCliente;
 public class Aplicacion {
     public static void main(String[] args) {
         cliente mod = new cliente();
-        consultasCliente modC = new consultasCliente();
+        SQLConsultas modC = new SQLConsultas();
         JFCliente jfc = new JFCliente();
+        Empleado empC = new Empleado();
        
         
-        Controlador ctr = new Controlador(mod, modC, jfc);
+        Controlador ctr = new Controlador(mod, modC, jfc, empC);
         ctr.iniciar();        
         jfc.setVisible(true);
         

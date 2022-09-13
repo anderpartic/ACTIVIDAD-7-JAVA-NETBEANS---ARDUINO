@@ -1,7 +1,8 @@
 package ec.edu.intsuperior.controlador;
 
+import ec.edu.intsuperior.modelo.Empleado;
 import ec.edu.intsuperior.modelo.cliente;
-import ec.edu.intsuperior.modelo.consultasCliente;
+import ec.edu.intsuperior.modelo.SQLConsultas;
 import ec.edu.intsuperior.vista.JFCliente;
 
 import java.awt.event.ActionEvent;
@@ -10,15 +11,18 @@ import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener {
     private cliente mod;
-    private consultasCliente modC;
+    private SQLConsultas modC;
     private JFCliente jfc;
+    private Empleado empC;
     
     
-    public Controlador (cliente mod, consultasCliente modC, JFCliente jfc)
+    
+    public Controlador (cliente mod, SQLConsultas modC, JFCliente jfc, Empleado empC)
     {
         this.mod = mod;
         this.modC = modC;
         this.jfc = jfc;
+        this.empC = empC;
         
         
         this.jfc.btnGuardar.addActionListener(this);
