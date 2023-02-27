@@ -1,0 +1,88 @@
+#include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+
+#define WIFI_SSID "EXT DALY"
+#define WIFI_PASSWORD "1711060515"
+
+#define pullAbrir 0 //D3
+#define pullCerrar 4 //D2
+#define led 5 //D1
+
+
+void setup() {
+  Serial.begin(115200 );
+  pinMode(led, OUTPUT);
+  pinMode(pullAbrir, INPUT);
+  pinMode(pullCerrar, INPUT);
+
+  Serial.println();
+  Serial.print("Conectando a: ");
+  Serial.println(WIFI_SSID);
+  WiFi.mode(WIFI_STA);
+  delay(100);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(100);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println(WiFi.localIP());
+
+}
+
+void loop() {
+
+  Puerta();
+  Java();
+
+}
+
+/// DESDE JAVA
+char mensaje;
+void Java() {
+  if (Serial.available() > 0) {
+    mensaje = Serial.read();
+    if (mensaje == 'k' ) {
+      digitalWrite(led, HIGH);
+      delay(800);
+      digitalWrite(led, LOW);
+
+    }
+    else {
+      digitalWrite(led, HIGH);
+      delay (800);
+      digitalWrite(led, LOW);
+      delay (250);
+      digitalWrite(led, HIGH);
+      delay (800);
+      digitalWrite(led, LOW);
+    }
+  }
+}
+
+/////// CONTROL
+void Puerta() {
+  bool abrir = true;
+  bool cerrar = false;
+
+  if (digitalRead(pullAbrir) == HIGH) {
+    digitalWrite(led, HIGH);
+    delay(800);
+    digitalWrite(led, LOW);
+    Serial.println(abrir);
+
+  }
+  else if (digitalRead(pullCerrar) == HIGH) {
+    digitalWrite(led, HIGH);
+    delay (800);
+    digitalWrite(led, LOW);
+    delay (250);
+    digitalWrite(led, HIGH);
+    delay (800);
+    digitalWrite(led, LOW);
+    Serial.println(cerrar);
+
+  }
+
+}
